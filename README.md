@@ -15,6 +15,7 @@
  + npm install mobx 
  + npm install mobx-react 
  + npm install babel-plugins-transform-decorators-legacy (装饰器依赖的插件)
+ 
 #### 配置.babelrc文件
      {
         "presets": [
