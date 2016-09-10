@@ -27,8 +27,16 @@
      }
 
 ### mobx常用接口
+ + observable
+ + @observer
+ + @action
 
- +
+### react-native常用组件
+ + View
+ + ScrollView
+ + ListView
+ + Image
+ + Text
 
 
 
