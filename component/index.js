@@ -14,6 +14,12 @@ import {
   TouchableOpacity,
   RecyclerViewBackedScrollView,
 } from 'react-native';
+import {
+  Navigation,
+  Scene,
+  Router,
+  Actions
+} from 'react-native-router-flux';
 import Info from './info';
 // let db=SQLite.openDatabase({name: 'testDB', location: 'default'}, ()=>{console.log(1)}, ()=>{console.log(2)});
 //   db.transaction(function(tx) {
@@ -61,13 +67,7 @@ let data=observable({
       <ScrollView>
         <ListView dataSource={data.dataSource} renderRow={
             rowData => 
-            <TouchableOpacity onPress={()=>{
-              console.log(navigator)
-                  navigator.push({
-                    name: 'Info',
-                    component: Info,
-                  })
-                }}>
+            <TouchableOpacity onPress={Actions.me}>
                 <View style={styles.listContainer} >
                     <Image style={styles.imgSize} source={require("../images/avatar.png")} />
                     <View style={styles.listContent}>

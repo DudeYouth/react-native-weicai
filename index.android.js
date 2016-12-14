@@ -11,20 +11,14 @@ import {
     Image,
 } from "react-native";
 import React, { Component } from "react";
-import NaviogationBar from "react-native-navbar";
 import {
-  StackNavigation,
-  TabNavigation,
-  TabNavigationItem as TabItem,
-  createRouter,
-} from '@exponent/ex-navigation';
+  Navigation,
+  Scene,
+  Router
+} from 'react-native-router-flux';
 import Index from './component/index';
 import Me from './component/me';
 import Icon from 'react-native-vector-icons/FontAwesome';
-const Router= createRouter(() => ({
-  index: () => Index,
-  me: () => Me,
-}));
 class App extends Component {
     constructor(props){
       super(props);
@@ -32,9 +26,10 @@ class App extends Component {
     render() {
       const iconSize=30;
       return (
-        <View style={{flex:1}}>
-          123
-        </View>
+        <Router name="root">
+          <Scene key="index" component={Index} title="index"></Scene>
+          <Scene key="me" component={Me} title="me"></Scene>
+        </Router>
       )
     }
 }
