@@ -39,6 +39,12 @@
  + Image
  + Text
 
+### react-native功能组件
+ + react-native-vector-icons/FontAwesome   字体组件
+ + react-native-router-flux                路由
+ + react-native-sqlite-storage             本地数据库 
+ + react-native-swiper                     轮播图
+
 
 
 

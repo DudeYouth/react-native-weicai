@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let data=observable({
-    dataSource: ds.cloneWithRows(['row 1', 'row 2',"row3","row3","row3","row3","row3","row3"])
+    dataSource: ds.cloneWithRows(['row 1', 'row 2'])
 })
 @observer export default class List extends Component {
   constructor(props){
