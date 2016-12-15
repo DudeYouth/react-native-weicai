@@ -68,7 +68,7 @@ let data=observable({
       <ScrollView style={commonCss.container}>
         <ListView dataSource={data.dataSource} renderRow={
             rowData => 
-            <TouchableOpacity onPress={Actions.info}>
+            <TouchableOpacity onPress={Actions.me}>
                 <View style={styles.listContainer} >
                     <Image style={styles.imgSize} source={require("../images/avatar.png")} />
                     <View style={styles.listContent}>

@@ -14,23 +14,23 @@ import {
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-@observer export default class Info extends Component {
+export default class Info extends Component {
   constructor(props){
     super(props);
   }
   render() {
       
     return (
-      <View>
-        <Swiper>
+      <View style={{height:200}}>
+        <Swiper >
             <View>
-                <Image source='../images/tu01.jpg' />
+                <Image source={require('../images/tu01.jpg')} />
             </View>
             <View>
-                <Image source='../images/tu02.jpg' />
+                <Image source={require('../images/tu02.jpg')} />
             </View>
             <View>
-                <Image source='../images/avatar.png' />
+                <Image source={require('../images/tu03.png')}/>
             </View>
         </Swiper>
       </View>
