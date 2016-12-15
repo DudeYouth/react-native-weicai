@@ -80,6 +80,8 @@ var styles=StyleSheet.create({
     tabbarItem:{
       alignItems:"center",
       justifyContent:"center",
+      textAlign:"center",
+      marginLeft:-3
     }
 })
 AppRegistry.registerComponent('reactnative', () => App);
