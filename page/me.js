@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 import {observable} from "mobx";
 import {observer} from "mobx-react/native";
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   ScrollView,
   Image,
   ListView,
-  RecyclerViewBackedScrollView,
+  TouchableOpacity,
 } from 'react-native';
+import {Actions} from "react-native-router-flux";
 import cStyles from "./style";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-@observer export default class List extends Component {
+@observer export default class Me extends Component {
   constructor(props){
     super(props);
   }
@@ -26,10 +26,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
         <View>
             <View style={[styles.item,styles.headerItem]}>
                 <Image source={require('../images/avatar.png')} style={styles.avatar}/>
-                <View style={styles.headerContainer}>
+                <TouchableOpacity style={styles.headerContainer} onPress={Actions.userinfo}>
                     <Text style={styles.strong}>我的姓名</Text>
                     <Text style={{color:"#e5e5e5"}}>高级会员</Text>
-                </View>
+                </TouchableOpacity>
                 <Text style={styles.color}>账户管理&nbsp;&nbsp;<Icon name="angle-right" size={20}/></Text>
             </View>
             <View style={styles.item}>

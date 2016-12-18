@@ -16,11 +16,13 @@ import {
   Scene,
   Router
 } from 'react-native-router-flux';
-import Index from './component/index';
-import Me from './component/me';
-import Info from './component/info';
-import Type from './component/type';
-import Car from './component/shopCar';
+import Index from './page/index';
+import Me from './page/me';
+import Info from './page/info';
+import Type from './page/type';
+import Car from './page/shopCar';
+import Register from './page/register';
+import Userinfo from './page/userinfo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class TabBar extends Component{
   constructor(props){
@@ -67,7 +69,9 @@ class App extends Component {
             <Scene key="car" duration={0} component={Car} title="购物车" icon={TabBar} />
             <Scene key="me"  duration={0} component={Me} hideNavBar={true} title="我的" icon={TabBar} />
           </Scene>
-          <Scene key="info" duration={0}  component={Info} title="详情"></Scene>
+          <Scene key="info" duration={0} hideNavBar={true} component={Info} title="详情"></Scene>
+          <Scene key="register" duration={0} hideNavBar={true} component={Register} title="注册"></Scene>
+          <Scene key="userinfo" duration={0} component={Userinfo} title="用户详情"></Scene>
         </Router>
       )
     }

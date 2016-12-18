@@ -22,6 +22,8 @@ import {
   Actions
 } from 'react-native-router-flux';
 
+import Themelist from "../component/themelist";
+
 // let db=SQLite.openDatabase({name: 'testDB', location: 'default'}, ()=>{console.log(1)}, ()=>{console.log(2)});
 //   db.transaction(function(tx) {
 //     tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (name, score)');
@@ -49,19 +51,19 @@ let data=observable({
   constructor(props){
     super(props);
   }
-  componentDidMount(){
-      this.request();
-  }
-  @action request(){
-      fetch("http://192.168.1.102:3000", {
-        method : 'get',
-        headers : {
-            'Content-Type': 'application/json',
-        }
-    }).then(response => {response.json().then(res=>{data.dataSource=ds.cloneWithRows(res)})}).catch(res=>{
-          console.log(res,123456);
-      })
-  }
+  // componentDidMount(){
+  //     this.request();
+  // }
+  // @action request(){
+  //     fetch("http://192.168.1.102:3000", {
+  //       method : 'get',
+  //       headers : {
+  //           'Content-Type': 'application/json',
+  //       }
+  //   }).then(response => {response.json().then(res=>{data.dataSource=ds.cloneWithRows(res)})}).catch(res=>{
+  //         console.log(res,123456);
+  //     })
+  // }
   render() {
     const {navigator}=this.props;
     return (
@@ -69,14 +71,7 @@ let data=observable({
         <ListView dataSource={data.dataSource} renderRow={
             rowData => 
             <TouchableOpacity onPress={Actions.info}>
-                <View style={styles.listContainer} >
-                    <Image style={styles.imgSize} source={require("../images/avatar.png")} />
-                    <View style={styles.listContent}>
-                    <Text style={{fontWeight:"bold",fontSize:18}}>{rowData.title}</Text>
-                    <Text>{rowData.label}</Text>
-                    <Text>{rowData.content}</Text>
-                    </View>
-                </View>
+                <Themelist {...rowData}/>
             </TouchableOpacity>
             }
 
@@ -86,24 +81,4 @@ let data=observable({
   }
 }
 
-const styles = StyleSheet.create({
-    listContainer:{
-        flexDirection:'row',
-        borderBottomWidth:1,
-        borderColor:"#eee",
-        paddingTop:8,
-        paddingBottom:8,
-        paddingLeft:15,
-        paddingRight:15,
-    },
-    listContent:{
-        flex:1,
-    },
-    imgSize:{
-        width:90,
-        height:80,
-        borderWidth:1,
-        marginRight:5,
-    }
-});
 

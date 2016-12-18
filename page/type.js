@@ -1,7 +1,9 @@
 'use strict';
 import React, { Component } from 'react';
-import {observable} from "mobx";
+import {observable,action} from "mobx";
 import {observer} from "mobx-react/native";
+import SQLite from 'react-native-sqlite-storage';
+import commonCss from "../styles/commonStyle";
 import {
   AppRegistry,
   StyleSheet,
@@ -10,26 +12,37 @@ import {
   ScrollView,
   Image,
   ListView,
+  TouchableOpacity,
   RecyclerViewBackedScrollView,
 } from 'react-native';
+import {
+  Navigation,
+  Scene,
+  Router,
+  Actions
+} from 'react-native-router-flux';
+
+import Themelist from "../component/themelist";
+
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let data=observable({
-    dataSource: ds.cloneWithRows(['row 1', 'row 2'])
+    dataSource:ds.cloneWithRows( [
+        {title:"title1",label:"A simple applicatiion",content:"We designed a simple application to focus on demonstrating how these technologies can be used together"},
+    ])
 })
 @observer export default class List extends Component {
   constructor(props){
     super(props);
   }
   render() {
-      console.log(data.list);
+    const {navigator}=this.props;
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={commonCss.container}>
         <ListView dataSource={data.dataSource} renderRow={
             rowData => 
-                <View style={styles.listContainer}>
-                    <Image style={styles.imgSize} source={{uri:'http://p4.gexing.com/kongjianpifu/20120807/1714/5020dc751ebfc.jpeg'}} />
-                    <Text style={styles.listContent}>{rowData}1</Text>
-                </View>
+            <TouchableOpacity onPress={Actions.info}>
+                <Themelist {...rowData}/>
+            </TouchableOpacity>
             }
 
         />
@@ -39,11 +52,6 @@ let data=observable({
 }
 
 const styles = StyleSheet.create({
-    container:{
-        height:200,
-        borderWidth:1,
-        borderColor:"red",
-    },
     listContainer:{
         flexDirection:'row',
         borderBottomWidth:1,
@@ -57,8 +65,10 @@ const styles = StyleSheet.create({
         flex:1,
     },
     imgSize:{
-        width:120,
-        height:100,
+        width:90,
+        height:80,
+        borderWidth:1,
+        marginRight:5,
     }
 });
 
