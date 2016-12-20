@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Actions} from "react-native-router-flux";
-import cStyles from "./style";
+import commonStyle from "../styles/commonStyle";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 @observer export default class Me extends Component {
@@ -22,7 +22,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
   render() {
       const iconSize=30;
     return (
-      <ScrollView style={cStyles.container}>
+      <ScrollView style={commonStyle.containerBackgroundColor}>
         <View>
             <View style={[styles.item,styles.headerItem]}>
                 <Image source={require('../images/avatar.png')} style={styles.avatar}/>

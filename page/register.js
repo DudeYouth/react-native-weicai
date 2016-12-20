@@ -80,7 +80,17 @@ export default class Register extends Component{
           image={require('../images/lock.png')}
         />
 
+        <GiftedForm.TextInputWidget
+          name='password' // mandatory
+          title='确认密码'
 
+          placeholder='密码'
+
+
+          clearButtonMode='while-editing'
+          secureTextEntry={true}
+          image={require('../images/lock.png')}
+        />
         <GiftedForm.SubmitWidget
           title='登录'
           widgetStyles={{
